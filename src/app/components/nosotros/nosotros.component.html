@@ -1,0 +1,55 @@
+<section id="products">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-12">
+                <form id="formSearch" class="md-3">
+                    <input class="form-control mr-sm-2" type="text" name="filterProducts" placeholder="Search" [(ngModel)]="filterProducts">
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 mt-3 mx-auto" *ngFor="let product of products | filter:filterProducts">
+                <div class="card_product">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <p>
+                                <img class="img-thumbnail" src="{{product.portada}}" alt="{{product.nombre}}">
+                            </p>
+                            <h4 routerLink="/product/{{product.id}}" class="card-title">{{product.nombre}}</h4>
+                            <!--<p class="card-text">
+                  {{product.descripcion}}
+                </p>-->
+                            <div *ngIf="product.oferta == 1; else noDscto">
+                                <div class="container-precio-idioma">
+                                    <p class="badge badge-info bg-warning">
+                                        $ {{product.precioOff}}
+                                    </p>
+                                    <p class="badge badge-info bg-danger">
+                                        {{product.descuento}} % Off
+                                    </p>
+                                </div>
+                                <div class="container-precio-idioma">
+                                    <p class="badge badge-info bg-secondary">
+                                        $ <del>{{product.precio}}</del>
+                                        <p class="badge badge-info">
+                                            {{product.subCategoria}}
+                                        </p>
+                                </div>
+                            </div>
+                            <ng-template #noDscto>
+                                <div class="container-precio-idioma">
+                                    <p class="badge badge-info bg-secondary">
+                                        $ {{product.precio}}
+                                        <p class="badge badge-info">
+                                            {{product.subCategoria}}
+                                        </p>
+                                </div>
+                            </ng-template>
+                            <a href="{{product.link_amazon}}" class="btn btn-block btn-primary" target="_blank">Buy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,57 @@
+#products {
+    border-radius: 10px;
+    margin-top: 80px;
+}
+
+section {
+    padding: 0.25rem 0;
+}
+
+#products .card {
+    border: none;
+}
+
+.card_product {
+    position: relative;
+    transform: rotateY(0deg);
+    z-index: 2;
+    margin-bottom: 30px;
+}
+
+.card_product .card {
+    min-height: 200px;
+}
+
+p.card-text,
+h4.card-title {
+    min-height: 50px !important;
+}
+
+p.card-text {
+    text-align: justify;
+}
+
+.card-title {
+    cursor: pointer;
+}
+
+.card_product .card .card-body img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    align-content: center;
+}
+
+div.container-precio-idioma {
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container{
+    border: solid;
+    border-style: inherit;
+}

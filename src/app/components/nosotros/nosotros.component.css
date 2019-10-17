@@ -1,0 +1,43 @@
+#products {
+    border-radius: 0.25rem;
+    margin-top: 80px;
+}
+
+section {
+    padding: 5px 0;
+}
+
+#products .card {
+    border: none;
+}
+
+.card_product {
+    position: relative;
+    transform: rotateY(0deg);
+    z-index: 2;
+    margin-bottom: 30px;
+}
+
+.card_product .card {
+    min-height: 312px;
+}
+
+p.card-text,
+h4.card-title {
+    min-height: 96px !important;
+}
+
+.card-title {
+    cursor: pointer;
+}
+
+.card_product .card .card-body img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+
+div.container-precio-idioma {
+    display: flex;
+    justify-content: space-between;
+}

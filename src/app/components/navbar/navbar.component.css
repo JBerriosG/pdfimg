@@ -1,0 +1,11 @@
+li a{
+    color: #ffffff;
+  }
+
+li a:hover{
+    color: red;
+}
+
+a:hover{
+    color: red;
+}

@@ -1,0 +1,20 @@
+<section id="product">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-5 mt-3">
+                <div>
+                    <img class="d-block w-100" src="{{product.portada}}" alt="First slide">
+                </div>
+                <!--<p><img class="img-fluid img-thumbnail" src="{{product.portada}}" alt="{{product.nombre}}"></p>-->
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-7 mx-auto mt-5 mb-3 text-center descripcion">
+                <p>
+                        {{product.descripcion}}
+                </p>
+                <a href="{{product.link_amazon}}"  class="btn btn-primary mt-3">
+                    <i class="fab fa-amazon"></i> COMPRAR
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

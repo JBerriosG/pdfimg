@@ -1,0 +1,57 @@
+<section class="row">
+    <div class="col">
+
+        <button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalProduct">New
+            Product</button>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Color/fondo</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Señal</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">&nbsp;</th>
+                    <th scope="col">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr
+                    *ngFor="let product of products | paginate: {itemsPerPage: 6, currentPage: pageActual}; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{product.codigo}}</td>
+                    <td>{{product.color}}</td>
+                    <td>{{product.tipo}}</td>
+                    <td>{{product.nombre}}</td>
+                    <td>
+                        <img class="d-block w-50" src="{{product.portada}}">
+                    </td>
+                    <td>{{product.estado}}</td>
+                    <td>{{product.cantidad}}</td>
+                    <td *ngIf="product.userUid == userUid || isAdmin == true; else noOwner">
+                        <button class="btn btn-primary" (click)="onPreUpdateProduct(product)" data-toggle="modal"
+                            data-target="#modalProduct">Update</button>
+                    </td>
+                    <ng-template #noOwner>
+                        <td>
+                            <button class="btn btn-secondary" disabled="true">Update</button>
+                        </td>
+                    </ng-template>
+                    <td *ngIf="isAdmin == true; else noAdmin">
+                        <button class="btn btn-danger" (click)="onDeleteProduct(product.id)">Delete</button>
+                    </td>
+                    <ng-template #noAdmin>
+                        <td>
+                            <button class="btn btn-secondary" disabled="true">Delete</button>
+                        </td>
+                    </ng-template>
+                </tr>
+            </tbody>
+        </table>
+        <pagination-controls (pageChange)="pageActual = $event" class="my-pagination"></pagination-controls>
+    </div>
+</section>
+<app-modal [userUid]="userUid"></app-modal>

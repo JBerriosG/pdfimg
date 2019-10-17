@@ -1,0 +1,36 @@
+<section id="products">
+    <div class="container">
+        <!-- <app-galeria></app-galeria> -->
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-3 mt-3 mx-auto"
+                *ngFor="let product of products | paginate: {itemsPerPage: 6, currentPage: pageActual}">
+                <div class="card_product">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <p>
+                                <img class="img-thumbnail" src="{{product.portada}}" alt="{{product.nombre}}">
+                            </p>
+                            <h4 routerLink="/product/{{product.id}}" class="card-title">{{product.nombre}}</h4>
+                            <!--<p class="card-text">
+                  {{product.descripcion}}
+                </p>-->
+                            <div class="container-precio-idioma">
+                                <p class="badge badge-info bg-info">
+                                    {{product.codigo}}
+                                </p>
+                                <p class="badge badge-info bg-success">
+                                    {{product.estado}}
+                                </p>
+                            </div>
+                            <button class="btn btn-primary btn-block" (click)="copiarPegar(product.id)">
+                                <i class="fas fa-plus-circle"></i>
+                                AGREGAR
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <pagination-controls (pageChange)="pageActual = $event" class="my-pagination"></pagination-controls>
+    </div>
+</section>
