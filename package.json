@@ -29,7 +29,7 @@
     "file-system": "^2.2.2",
     "firebase": "^6.2.4",
     "fs-extra": "^8.1.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ngx-pagination": "^4.0.0",
     "ngx-spinner": "^7.1.4",
     "pdfkit": "^0.10.0",
